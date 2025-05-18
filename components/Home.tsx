@@ -33,6 +33,32 @@ const ProjectButton = () => (
     </span>
   </motion.a>
 );
+
+const glowVariant = {
+  initial: { opacity: 0, scale: 0.9 },
+  animate: {
+    opacity: [0.5, 1, 0.5],
+    scale: [0.9, 1, 0.9],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
+const nameVariant = {
+  initial: { y: 0 },
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
 const Home = () => {
   return (
     <motion.section
@@ -40,23 +66,57 @@ const Home = () => {
       animate="animate"
       variants={staggerContainer}
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-[#111111] text-white py-16 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen flex items-center justify-center bg-[#111111] text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
+      {/* Background animated elements */}
+      <motion.div 
+        className="absolute w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl"
+        variants={glowVariant}
+        style={{
+          top: '10%',
+          left: '15%',
+          filter: 'blur(120px)',
+        }}
+      />
+      <motion.div 
+        className="absolute w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl"
+        variants={glowVariant}
+        style={{
+          bottom: '10%',
+          right: '15%',
+          filter: 'blur(120px)',
+        }}
+      />
+
       <div className="container mx-auto text-center relative z-10">
         <motion.h1 
           variants={fadeInUp} 
           className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-luckiest mb-4 sm:mb-6 tracking-wider font-extrabold"
         >
           HEY, I&apos;M <br className="sm:hidden" />
-          <span className="text-blue-500">SHUBHAM MUKHERJEE</span>
+          <motion.span 
+            className="text-blue-500 inline-block"
+            variants={nameVariant}
+          >
+            SHUBHAM MUKHERJEE
+          </motion.span>
         </motion.h1>
         
         <motion.p 
           variants={fadeInUp} 
-          className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-semibold px-4"
+          className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-semibold px-4 relative"
         >
-          A skilled web developer, crafting and managing websites and web applications to
-          ensure the success of the entire product with finesse.
+          <motion.span
+            className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur"
+            animate={{
+              opacity: [0.5, 0.8, 0.5],
+              transition: { duration: 3, repeat: Infinity }
+            }}
+          />
+          <span className="relative">
+            A skilled web developer, crafting and managing websites and web applications to
+            ensure the success of the entire product with finesse.
+          </span>
         </motion.p>
 
         <motion.div 
