@@ -43,11 +43,11 @@ const Footer = () => {
       text: 'mukherjeeshubham18@gmail.com',
       link: 'mailto:mukherjeeshubham18@gmail.com'
     },
-    {
+    /*{
       icon: <HiPhone className="w-5 h-5" />,
       text: '+91 70672 94951',
       link: 'tel:+917067294951'
-    },
+    },*/
     {
       icon: <HiLocationMarker className="w-5 h-5" />,
       text: 'Murshidabad, Kolakata, India',
