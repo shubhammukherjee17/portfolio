@@ -28,7 +28,26 @@ const Footer = () => {
       icon: <FaInstagram size={24} />, 
       url: 'https://instagram.com/shubham.mukherjee_', 
       label: 'Instagram',
-      hoverColor: 'hover:text-[#E4405F]' // Instagram pink
+      hoverColor: 'hover:text-[#E4405F]',
+      bgColor: 'bg-[#E4405F]/10'
+    }
+  ];
+
+  const contactInfo = [
+    {
+      icon: <HiMail className="w-5 h-5" />,
+      text: 'your.email@example.com',
+      link: 'mailto:mukherjeeshubham18@gmail.com'
+    },
+    {
+      icon: <HiPhone className="w-5 h-5" />,
+      text: '+91 70672 94951',
+      link: 'tel:+917067294951'
+    },
+    {
+      icon: <HiLocationMarker className="w-5 h-5" />,
+      text: 'Murshidabad, Kolakata, India',
+      link: '#'
     }
   ];
 
