@@ -28,7 +28,7 @@ export const projects = [
     description: "Comprehensive system for managing student records, course scheduling, attendance tracking, and academic performance monitoring.",
     image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1471&auto=format&fit=crop",
     tech: ["React", "Node.js", "MongoDB", "Express"],
-    liveUrl: "cms.ihavetech.com",
+    liveUrl: "#",
     githubUrl: "#"
   }
 ];
