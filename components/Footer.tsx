@@ -35,7 +35,7 @@ const Footer = () => {
       hoverColor: 'hover:text-[#E4405F]',
       bgColor: 'bg-[#E4405F]/10'
     }
-  ];
+  ]; 
 
   const contactInfo = [
     {
