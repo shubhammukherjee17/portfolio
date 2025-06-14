@@ -33,23 +33,6 @@ const Footer = () => {
     }
   ];
 
-  const contactInfo = [
-    {
-      icon: <HiMail className="w-5 h-5" />,
-      text: 'your.email@example.com',
-      link: 'mailto:mukherjeeshubham18@gmail.com'
-    },
-    {
-      icon: <HiPhone className="w-5 h-5" />,
-      text: '+91 70672 94951',
-      link: 'tel:+917067294951'
-    },
-    {
-      icon: <HiLocationMarker className="w-5 h-5" />,
-      text: 'Murshidabad, Kolakata, India',
-      link: '#'
-    }
-  ];
 
   return (
     <footer className="py-8 bg-[#111111]/95 text-white">
