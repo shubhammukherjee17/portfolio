@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0b0f;
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
+  --background: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
   --accent: #3b82f6;
   --accent-hover: #2563eb;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --gradient-start: #3b82f6;
+  --gradient-end: #8b5cf6;
 }
 
 @theme inline {
@@ -29,6 +32,10 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-poppins), system-ui, sans-serif;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
 }
 
 @tailwind base;
@@ -38,14 +45,15 @@ body {
 /* Modern glassmorphism effect */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Smooth hover transitions */
 .hover-scale {
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-scale:hover {
@@ -54,7 +62,7 @@ body {
 
 /* Gradient text effect */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -62,37 +70,50 @@ body {
 
 /* Modern button styles */
 .btn-primary {
-  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-300;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
 }
 
 /* Card styles */
 .card {
-  @apply p-6 rounded-xl transition-all duration-300;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
+  @apply p-6 rounded-2xl transition-all duration-300;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Section styles */
 .section {
-  @apply py-20 px-4 sm:px-6 lg:px-8;
+  @apply py-24 px-4 sm:px-6 lg:px-8;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 50%);
+  pointer-events: none;
 }
 
 .section-title {
   @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-8;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -129,24 +150,24 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Responsive typography */
 h1 {
-  @apply text-4xl sm:text-5xl md:text-6xl font-bold;
+  @apply text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight;
 }
 
 h2 {
-  @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight;
 }
 
 h3 {
-  @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight;
 }
 
 p {
-  @apply text-base sm:text-lg text-gray-300;
+  @apply text-base sm:text-lg text-gray-300 leading-relaxed;
 }
 
 /* Container styles */
@@ -156,20 +177,20 @@ p {
 
 /* Grid layout */
 .grid-layout {
-  @apply grid gap-6;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 /* Utility classes */
 .text-gradient {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .bg-gradient {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
 /* Mobile optimizations */
@@ -196,32 +217,46 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
-}
-
-@layer base {
-  :root {
-    --font-josefin: '';
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+  button, 
+  [type='button'],
+  [type='submit'] {
+    min-height: 44px;
   }
   
-  html {
-    font-family: var(--font-josefin), system-ui, sans-serif;
+  a {
+    padding: 0.5rem;
   }
+}
+
+/* Modern input styles */
+input, textarea {
+  @apply bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300;
+}
+
+/* Modern link styles */
+.link {
+  @apply text-blue-400 hover:text-blue-300 transition-colors duration-300;
+}
+
+/* Modern badge styles */
+.badge {
+  @apply px-3 py-1 rounded-full text-sm font-medium bg-white/5 border border-white/10 text-gray-300;
+}
+
+/* Modern divider */
+.divider {
+  @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+}
+
+/* Modern tooltip */
+.tooltip {
+  @apply absolute invisible opacity-0 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm transition-all duration-300;
+}
+
+.tooltip-trigger:hover .tooltip {
+  @apply visible opacity-100;
 }
 
 /* Add these responsive utilities */
@@ -233,19 +268,6 @@ html {
   
   .section-padding {
     @apply py-12 sm:py-16 md:py-20;
-  }
-}
-
-/* Better touch targets on mobile */
-@media (max-width: 768px) {
-  button, 
-  [type='button'],
-  [type='submit'] {
-    min-height: 44px;
-  }
-  
-  a {
-    padding: 0.5rem;
   }
 }
 
