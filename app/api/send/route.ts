@@ -8,9 +8,9 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
     
     // Send confirmation email to the user
-    await resend.batch.send([{
-      from: 'Shubham Mukherjee <contact@shubhammukherjee.in>',
-      to: [email.toString()],
+    await resend.emails.send({
+      from: 'Shubham Mukherjee <onboarding@resend.dev>',
+      to: [email],
       subject: 'Thank you for your message',
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
@@ -21,27 +21,13 @@ export async function POST(req: Request) {
           <p>Shubham Mukherjee</p>
         </div>
       `,
-    }
-    ,
-    {
-        from: `${name} <onboarding@resend.dev>`,
-        to: ['mukherjeeshubham18@gmail.com'],
-        replyTo: [`${email}`],
-        subject: `New message from ${name}`,
-        html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #2563eb;">Thank You for Contacting Me!</h2>
-          <p>Hi ${name},</p>
-          <p>I've received your message and will get back to you as soon as possible.</p>
-          <p>Best regards,</p>
-          <p>Shubham Mukherjee</p>
-        </div>
-      `,
-    }]);
-    // Send email to portfolio owner
+    });
+
+    // Send notification email to yourself
     await resend.emails.send({
-      from: 'From Portfolio <onboarding@resend.dev>',
-      to: ['theshubhammukherjeeai@gmail.com'],
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: ['mukherjeeshubham18@gmail.com'],
+      replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
@@ -52,11 +38,12 @@ export async function POST(req: Request) {
         </div>
       `,
     });
+
     return NextResponse.json({ success: true });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
+    console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' }, 
+      { error: 'Failed to send email' },
       { status: 500 }
     );
   }
