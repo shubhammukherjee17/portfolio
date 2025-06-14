@@ -40,7 +40,7 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <HiMail className="w-5 h-5" />,
-      text: 'your.email@example.com',
+      text: 'mukherjeeshubham18@gmail.com',
       link: 'mailto:mukherjeeshubham18@gmail.com'
     },
     {
