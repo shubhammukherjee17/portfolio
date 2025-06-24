@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-const Footer = () => {
+const Footer = () => { 
   const socialLinks = [
     { 
       icon: <FaLinkedin size={24} />, 

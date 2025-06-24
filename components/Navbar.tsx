@@ -6,7 +6,7 @@ import { scrollToSection } from '@/utils/smoothScroll';
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 
-const Navbar = () => {
+const Navbar = () => { 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 

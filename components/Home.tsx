@@ -6,7 +6,7 @@ import { fadeInUp, staggerContainer } from '@/utils/animations';
 const ProjectButton = () => (
   <motion.a
     href="#projects"
-    onClick={(e) => {
+    onClick={(e) => { 
       e.preventDefault();
       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
     }}

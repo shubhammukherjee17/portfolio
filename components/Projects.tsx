@@ -9,35 +9,46 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#111111] text-white py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <motion.div
+    <section id="projects" className="section relative overflow-hidden">
+      {/* Background SVG overlay for depth, similar to About section */}
+      <div className="absolute inset-0 pointer-events-none select-none opacity-30 z-0">
+        <svg width="100%" height="100%" className="w-full h-full">
+          <defs>
+            <radialGradient id="projects-bg-gradient" cx="50%" cy="50%" r="80%">
+              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#18181b" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#projects-bg-gradient)" />
+        </svg>
+      </div>
+      <div className="container relative z-10">
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            Projects
+          <h2 className="section-title">
+            PROJECTS
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-16 h-1.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 mx-auto mt-3 rounded-full shadow-lg"></div>
         </motion.div>
-        
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid-layout"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={fadeIn}
-              className="group relative bg-[#111827]/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300"
+              className="card group relative flex flex-col overflow-hidden"
             >
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className="relative h-56 w-full overflow-hidden rounded-xl">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -48,25 +59,22 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111827] to-transparent opacity-60"></div>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold mb-3 text-gradient">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
-                
+                <p className="mb-6 leading-relaxed text-gray-300 flex-1">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, index) => (
                     <span 
                       key={index}
-                      className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-medium border border-blue-500/20"
+                      className="badge"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-auto">
                   <a 
                     href={project.githubUrl}
                     className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"

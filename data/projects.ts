@@ -12,7 +12,7 @@ export const projects = [
     description: "A full-stack social media application with real-time messaging and content sharing.",
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1474&auto=format&fit=crop",
     tech: ["React", "Firebase", "TailwindCSS", "Redux"],
-    liveUrl: "#",
+    liveUrl: "#", 
     githubUrl: "#"
   },
   {
