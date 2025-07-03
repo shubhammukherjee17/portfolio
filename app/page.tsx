@@ -9,7 +9,8 @@ import Footer from '@/components/Footer';
 export default function Page() {
   return (
     <>
-      <div className="splash-background fixed inset-0 z-[-1]" />
+      {/* Modern animated gradient splash background */}
+      <div className="splash-background fixed inset-0 z-[-1] pointer-events-none animate-gradient-move" />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

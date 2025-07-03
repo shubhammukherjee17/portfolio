@@ -38,8 +38,6 @@ body {
   background-attachment: fixed;
 }
 
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 /* Modern glassmorphism effect */
