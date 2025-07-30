@@ -29,13 +29,10 @@ export default function ThemeToggleButton({
 
   const styleId = "theme-transition-styles"
 
-  const updateStyles = React.useCallback((css: string, name: string) => {
+  const updateStyles = React.useCallback((css: string) => {
     if (typeof window === "undefined") return
 
     let styleElement = document.getElementById(styleId) as HTMLStyleElement
-
-    console.log("style ELement", styleElement)
-    console.log("name", name)
 
     if (!styleElement) {
       styleElement = document.createElement("style")
@@ -44,14 +41,12 @@ export default function ThemeToggleButton({
     }
 
     styleElement.textContent = css
-
-    console.log("content updated")
   }, [])
 
   const toggleTheme = React.useCallback(() => {
     const animation = createAnimation(variant, start, url)
 
-    updateStyles(animation.css, animation.name)
+    updateStyles(animation.css)
 
     if (typeof window === "undefined") return
 
@@ -64,7 +59,10 @@ export default function ThemeToggleButton({
       return
     }
 
-    document.startViewTransition(switchTheme)
+    // Add a small delay to ensure styles are applied
+    requestAnimationFrame(() => {
+      document.startViewTransition(switchTheme)
+    })
   }, [theme, setTheme, variant, start, url, updateStyles])
 
   return (
@@ -72,11 +70,11 @@ export default function ThemeToggleButton({
       onClick={toggleTheme}
       variant="ghost"
       size="icon"
-      className="w-9 p-0 h-9 relative group hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 ease-in-out"
+      className="w-9 p-0 h-9 relative group hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 ease-out will-change-transform"
       name="Theme Toggle Button"
     >
-      <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all duration-500 ease-in-out dark:-rotate-90 dark:scale-0 text-amber-500" />
-      <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all duration-500 ease-in-out dark:rotate-0 dark:scale-100 text-blue-400" />
+      <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all duration-500 ease-out dark:-rotate-90 dark:scale-0 text-amber-500 will-change-transform" />
+      <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all duration-500 ease-out dark:rotate-0 dark:scale-100 text-blue-400 will-change-transform" />
       <span className="sr-only">Theme Toggle </span>
       {showLabel && (
         <>

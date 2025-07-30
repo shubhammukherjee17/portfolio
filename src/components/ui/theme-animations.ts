@@ -70,12 +70,16 @@ export const createAnimation = (
       name: `${variant}-${start}`,
       css: `
        ::view-transition-group(root) {
-        animation-duration: 0.7s;
-        animation-timing-function: var(--expo-out);
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
       }
             
       ::view-transition-new(root) {
         animation-name: reveal-light;
+        will-change: clip-path;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
 
       ::view-transition-old(root),
@@ -85,22 +89,31 @@ export const createAnimation = (
       }
       .dark::view-transition-new(root) {
         animation-name: reveal-dark;
+        will-change: clip-path;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
 
       @keyframes reveal-dark {
-        from {
+        0% {
           clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
         }
-        to {
+        50% {
+          clip-path: polygon(50% -20%, -20% 50%, 20% 120%, 120% 50%);
+        }
+        100% {
           clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
         }
       }
 
       @keyframes reveal-light {
-        from {
+        0% {
           clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
         }
-        to {
+        50% {
+          clip-path: polygon(120% 50%, 50% 120%, 20% 50%, 50% 20%);
+        }
+        100% {
           clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
         }
       }
@@ -112,12 +125,16 @@ export const createAnimation = (
       name: `${variant}-${start}`,
       css: `
        ::view-transition-group(root) {
-        animation-duration: 0.7s;
-        animation-timing-function: var(--expo-out);
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
       }
             
       ::view-transition-new(root) {
         animation-name: reveal-light;
+        will-change: clip-path;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
 
       ::view-transition-old(root),
@@ -127,23 +144,32 @@ export const createAnimation = (
       }
       .dark::view-transition-new(root) {
         animation-name: reveal-dark;
+        will-change: clip-path;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
 
       @keyframes reveal-dark {
-        from {
+        0% {
           clip-path: circle(0% at 50% 50%);
         }
-        to {
-          clip-path: circle(100.0% at 50% 50%);
+        30% {
+          clip-path: circle(30% at 50% 50%);
+        }
+        100% {
+          clip-path: circle(100% at 50% 50%);
         }
       }
 
       @keyframes reveal-light {
-        from {
+        0% {
            clip-path: circle(0% at 50% 50%);
         }
-        to {
-          clip-path: circle(100.0% at 50% 50%);
+        30% {
+          clip-path: circle(30% at 50% 50%);
+        }
+        100% {
+          clip-path: circle(100% at 50% 50%);
         }
       }
       `,
@@ -188,23 +214,37 @@ export const createAnimation = (
     name: `${variant}-${start}`,
     css: `
       ::view-transition-group(root) {
-        animation-timing-function: var(--expo-out);
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
       }
       ::view-transition-new(root) {
         mask: url('${svg}') ${start.replace("-", " ")} / 0 no-repeat;
         mask-origin: content-box;
-        animation: scale-${start} 1s;
+        animation: scale-${start} 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform-origin: ${transformOrigin};
+        will-change: mask-size, transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
       ::view-transition-old(root),
       .dark::view-transition-old(root) {
-        animation: scale-${start} 1s;
+        animation: scale-${start} 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform-origin: ${transformOrigin};
         z-index: -1;
+        will-change: mask-size, transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
       @keyframes scale-${start} {
-        to {
-          mask-size: 350vmax;
+        0% {
+          mask-size: 0;
+        }
+        20% {
+          mask-size: 50vmax;
+        }
+        100% {
+          mask-size: 300vmax;
         }
       }
     `,

@@ -9,6 +9,26 @@
   src: url(/fonts/103fc5fac08dcb15-s.p.woff2);
 }
 
+/* Performance optimizations for smooth animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize transitions and animations */
+.transition-all,
+.transition-colors,
+.transition-transform {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 /* Mobile-first responsive improvements */
 @media (max-width: 640px) {
   /* Ensure text is readable on small screens */

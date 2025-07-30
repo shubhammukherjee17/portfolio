@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import WrapButton from '../ui/wrap-button'
+import ThemeToggleButton from '../ui/theme-toggle-button'
 import { X, Home, User, Briefcase, Mail, Github, Twitter, Download } from 'lucide-react'
 
 const MobileNav = () => {
@@ -127,13 +128,16 @@ const MobileNav = () => {
               </div>
               <span className="font-semibold text-gray-800 dark:text-gray-200">Menu</span>
             </div>
-            <button
-              onClick={closeMenu}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Close menu"
-            >
-              <X className="size-5 text-gray-600 dark:text-gray-400" />
-            </button>
+            <div className="flex items-center gap-1">
+              <ThemeToggleButton variant="circle-blur" start="top-right" />
+              <button
+                onClick={closeMenu}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-label="Close menu"
+              >
+                <X className="size-5 text-gray-600 dark:text-gray-400" />
+              </button>
+            </div>
           </div>
 
           {/* Navigation Links */}
