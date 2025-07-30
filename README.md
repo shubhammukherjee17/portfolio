@@ -75,9 +75,9 @@ The website is fully customizable. Key areas to modify:
 
 ## � Contact
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
+- **Email**: mukherjeeshubham18@gmail.com
+- **LinkedIn**: [https://www.linkedin.com/in/theshubhammukherjee]
+- **GitHub**: [https://github.com/shubhammukherjee17]
 
 ---
 

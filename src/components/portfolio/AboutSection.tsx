@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { MinimalCard } from '../ui/minimal-card'
-import { User, Heart, Coffee, MapPin, Calendar, Award, Target, Lightbulb, Mail, Twitter } from 'lucide-react'
+import { User, Heart, Coffee, MapPin, Target, Lightbulb, Mail, Twitter } from 'lucide-react'
 
 const AboutSection = () => {
   const personalInfo = [
