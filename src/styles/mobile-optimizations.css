@@ -115,3 +115,30 @@
     padding: 1.5rem;
   }
 }
+
+/* Mobile navbar fixes */
+@media (max-width: 768px) {
+  /* Ensure navbar has solid background on mobile */
+  nav {
+    background-color: rgb(255 255 255 / 0.98) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  [data-theme="dark"] nav,
+  .dark nav {
+    background-color: rgb(3 7 18 / 0.98) !important;
+  }
+  
+  /* Fix for iOS Safari backdrop-filter support */
+  @supports not (backdrop-filter: blur(12px)) {
+    nav {
+      background-color: rgb(255 255 255) !important;
+    }
+    
+    [data-theme="dark"] nav,
+    .dark nav {
+      background-color: rgb(3 7 18) !important;
+    }
+  }
+}

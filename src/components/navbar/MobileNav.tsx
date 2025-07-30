@@ -101,7 +101,7 @@ const MobileNav = () => {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 dark:bg-black/80 z-40"
+          className="fixed inset-0 bg-black/60 dark:bg-black/80 z-40 backdrop-blur-sm"
           onClick={closeMenu}
           aria-hidden="true"
         />
@@ -109,7 +109,7 @@ const MobileNav = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white dark:bg-gray-950 border-l border-gray-200 dark:border-gray-800 shadow-2xl z-50 transform transition-all duration-300 ease-out ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-l border-gray-200 dark:border-gray-800 shadow-2xl z-50 transform transition-all duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
