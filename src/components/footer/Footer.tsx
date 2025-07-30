@@ -99,7 +99,7 @@ const Footer = () => {
               <p className="text-black/60 dark:text-white/60 text-sm">
                 Open to opportunities and collaborations
               </p>
-              <WrapButton href="#contact" className="text-sm">
+              <WrapButton href="mailto: mukherjeeshubham18@gmail.com" className="text-sm">
                 <Mail className="size-3" />
                 Contact Me
               </WrapButton>

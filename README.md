@@ -8,23 +8,9 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, and Ta
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
-- **Animations**: Framer Motion
+- **Animations**: Framer Motion & Skiper UI
 - **Theme**: Dark/Light mode support
 
-## 📁 Project Structure
-
-```
-src/
-├── app/                 # Next.js app directory
-├── components/         
-│   ├── homeCards/      # Home page components
-│   ├── landingPage/    # Hero section
-│   ├── navbar/         # Navigation components
-│   ├── portfolio/      # Portfolio sections
-│   └── ui/             # Reusable UI components
-├── lib/                # Utility functions
-└── public/             # Static assets
-```
 
 ## 🌟 Features
 
@@ -40,8 +26,7 @@ src/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd skiper
+   https://github.com/shubhammukherjee17/portfolio.git
    ```
 
 2. **Install dependencies**
@@ -76,8 +61,8 @@ The website is fully customizable. Key areas to modify:
 ## � Contact
 
 - **Email**: mukherjeeshubham18@gmail.com
-- **LinkedIn**: [https://www.linkedin.com/in/theshubhammukherjee]
-- **GitHub**: [https://github.com/shubhammukherjee17]
+- **LinkedIn**: https://www.linkedin.com/in/theshubhammukherjee
+- **GitHub**: https://github.com/shubhammukherjee17
 
 ---
 
