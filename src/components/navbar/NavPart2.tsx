@@ -40,7 +40,7 @@ const NavPart2 = () => {
       </a>
       
       {/* Theme Toggle Button - positioned next to X icon */}
-      <ThemeToggleButton variant="circle-blur" start="top-right" />
+      <ThemeToggleButton variant="circle" start="center" />
     </div>
   );
 };

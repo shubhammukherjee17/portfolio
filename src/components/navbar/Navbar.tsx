@@ -62,7 +62,7 @@ const Navbar = () => {
                 <Download size={10} className="group-hover:rotate-45 ease-in-out transition-all duration-300" />
               </div>
             </a>
-            <ThemeToggleButton variant="circle-blur" />
+            <ThemeToggleButton variant="circle" start="center" />
           </div>
         </div>
       </div>

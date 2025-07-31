@@ -129,7 +129,7 @@ const MobileNav = () => {
               <span className="font-semibold text-gray-800 dark:text-gray-200">Menu</span>
             </div>
             <div className="flex items-center gap-1">
-              <ThemeToggleButton variant="circle-blur" start="top-right" />
+              <ThemeToggleButton variant="circle" start="center" />
               <button
                 onClick={closeMenu}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
