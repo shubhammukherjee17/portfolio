@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       description: "Collaborative task management application with real-time updates, team collaboration features, and project tracking capabilities.",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
       image: "/images/card2.webp",
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/shubhammukherjee17/Taskify",
       liveUrl: "https://demo.com"
     },
     {
