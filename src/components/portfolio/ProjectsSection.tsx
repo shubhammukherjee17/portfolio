@@ -22,16 +22,16 @@ const ProjectsSection = () => {
       technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
       image: "/images/card2.webp",
       githubUrl: "https://github.com/shubhammukherjee17/Taskify",
-      liveUrl: "https://demo.com"
+      liveUrl: "https://smart-taskify.vercel.app/"
     },
     {
       id: 3,
-      title: "Weather Dashboard",
-      description: "Modern weather application with location-based forecasts, interactive maps, and beautiful data visualizations.",
-      technologies: ["Vue.js", "D3.js", "Weather API", "Tailwind CSS"],
+      title: "Promptify-AI",
+      description: "A platform for generating advanced prompts for AI models. Features include prompt templates, sharing, and real-time collaboration.",
+      technologies: ["TypeScript", "Gemini API", "Tailwind CSS"],
       image: "/images/card3.webp",
-      githubUrl: "https://github.com",
-      liveUrl: "https://demo.com"
+      githubUrl: "https://github.com/shubhammukherjee17/Promptify",
+      liveUrl: "https://promptify-ten-beta.vercel.app/"
     },
     {
       id: 4,
