@@ -9,12 +9,12 @@ const person: Person = {
   avatar: "/images/avatar.jpg",
   email: "mukherjeeshubham18@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Hindi", "BengA"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English", "Hindi", "Bengali"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
 
@@ -60,7 +60,7 @@ const home: Home = {
   },
   subline: (
     <>
-             I'm Shubham, a passionate Full Stack Developer from Murshidabad, India
+             I&apos;m Shubham, a passionate Full Stack Developer from Murshidabad, India
       {/* <Logo
         dark
         icon=" "
@@ -93,11 +93,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hi, I'm Shubham Mukherjee, a passionate Full Stack Developer specializing in modern web technologies. 
+        Hi, I&apos;m Shubham Mukherjee, a passionate Full Stack Developer specializing in modern web technologies.
         With expertise spanning Java, TypeScript, JavaScript, Node.js, React.js, and Next.js, I bring a 
         comprehensive skill set to every project I undertake. My development approach centers on creating 
         clean, maintainable, and scalable code that meets current requirements while being flexible enough 
-        to evolve with changing business needs. From Murshidabad, India, I'm always excited to take on 
+        to evolve with changing business needs. From Murshidabad, India, I&apos;m always excited to take on
         new challenges and contribute to innovative projects that make a meaningful impact.
       </>
     ),
