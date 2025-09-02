@@ -21,6 +21,11 @@ Hi, I'm **Shubham Mukherjee**, a passionate Full Stack Developer from Murshidaba
 - **Frameworks:** Express.js, FastAPI
 - **APIs:** RESTful services, GraphQL
 
+-### Database & Storage
+- **SQL:** PostgreSQL
+- **NoSQL:** MongoDB
+- **Caching:** Redis
+- **0RM:** Prisma
 
 ### Cloud & DevOps
 - **Cloud Platforms:** AWS, Vercel
