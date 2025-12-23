@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-dark-bg: #0a0a0a;
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-bg: rgba(10, 10, 10, 0.6);
+  --color-ai-green: #0aff9d;
+
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-grotesk), ui-monospace, SFMono-Regular, monospace;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-cursor-blink: cursor-blink 1s step-end infinite;
+
+  @keyframes cursor-blink {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 10px var(--color-neon-purple), 0 0 20px var(--color-neon-purple);
+  }
+
+  .glass-panel {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+  }
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-neon-blue);
+  color: #000;
+}
