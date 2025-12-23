@@ -18,8 +18,16 @@ export const Terminal = () => {
     const [isMaximized, setIsMaximized] = useState(false);
     const [input, setInput] = useState("");
     const [history, setHistory] = useState<string[]>(["Welcome to the AI Terminal. Type 'help' for commands."]);
+    const [isMobile, setIsMobile] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
         if (bottomRef.current) {
@@ -72,10 +80,10 @@ export const Terminal = () => {
                             opacity: 1,
                             scale: 1,
                             y: 0,
-                            width: isMaximized ? "100vw" : "600px",
-                            height: isMaximized ? "100vh" : "400px",
+                            width: isMaximized ? "100vw" : isMobile ? "90vw" : "600px",
+                            height: isMaximized ? "100vh" : isMobile ? "60vh" : "400px",
                             bottom: isMaximized ? 0 : "5rem",
-                            right: isMaximized ? 0 : "2rem",
+                            right: isMaximized ? 0 : isMobile ? "5vw" : "2rem",
                             borderRadius: isMaximized ? 0 : "0.75rem"
                         }}
                         exit={{ opacity: 0, scale: 0.8, y: 100 }}
