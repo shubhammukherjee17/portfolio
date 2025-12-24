@@ -35,7 +35,21 @@ export const Contact = () => {
                 body: JSON.stringify(data),
             });
 
-            const result = await response.json();
+            let result;
+            const responseText = await response.text();
+
+            try {
+                result = JSON.parse(responseText);
+            } catch (e) {
+                // Determine if it is the specific Turbopack error
+                const isTurbopackError = responseText.includes("TurbopackInternalError");
+                const errorMessage = isTurbopackError
+                    ? "Server build error (Windows Permissions). Please run terminal as Administrator."
+                    : `Invalid server response: ${responseText.slice(0, 100)}...`;
+
+                console.error("Failed to parse JSON response. raw text:", responseText);
+                result = { error: errorMessage };
+            }
 
             if (response.ok) {
                 setStatus("success");
@@ -44,8 +58,8 @@ export const Contact = () => {
                 setTimeout(() => setStatus("idle"), 5000);
             } else {
                 setStatus("idle");
-                console.error("Submission error:", result);
-                alert(`Error: ${result.error || "Failed to send message."}`);
+                console.error("Submission error details:", result);
+                alert(`Error: ${result.error}`);
             }
         } catch (error) {
             console.error("Network error:", error);

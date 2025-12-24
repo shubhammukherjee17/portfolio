@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Portfolio — Shubham Mukherjee**
 
-## Getting Started
+A personal portfolio site built with Next.js (app router) showcasing projects, experience, and contact information. This repo contains a clean, responsive UI with sections for Hero, About, Projects, Experience, Blog, and Contact, plus an email-send API route.
 
-First, run the development server:
+**Tech Stack**
+- **Framework:** Next.js (app directory)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (configured in the project)
+- **Runtime:** Node.js / Vercel-compatible
+
+**Features**
+- **Responsive sections:** Hero, About, Projects, Experience, Blog, Contact, Footer
+- **Email API:** Server route to send email ([app/api/send/route.ts](app/api/send/route.ts))
+- **Reusable UI components:** Buttons, Glass cards, Section wrapper, Social links
+- **Custom backgrounds and effects:** Neural background and typewriter effect
+
+**Local development**
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Project structure (high level)**
+- **app/** — Next.js app entry, global styles, routes ([app/page.tsx](app/page.tsx))
+- **components/** — Reusable UI and section components (examples: [components/sections/Experience.tsx](components/sections/Experience.tsx), [components/email-templates.tsx](components/email-templates.tsx))
+- **lib/** — Utility helpers ([lib/utils.ts](lib/utils.ts))
+- **public/** — Static assets
 
-## Learn More
+**Deployment**
+This project is ready to deploy to Vercel or any Node-compatible host that supports Next.js. For Vercel, connect the repository and use the default build command `npm run build` and output directory handled by Next.
 
-To learn more about Next.js, take a look at the following resources:
+**Contributing**
+- Fork and open a PR for changes.
+- Run `npm run dev` locally to test UI and API routes before submitting.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Contact**
+If you'd like to get in touch about the portfolio or a potential collaboration, use the contact form on the site or reach out via the contact details in the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**License**
+This repository does not include a license file. Add one if you want to permit reuse.

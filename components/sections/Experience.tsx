@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 
 const experience = [
     {
-        role: "Full Stack Developer Intern",
-        company: "TechNova Solutions",
-        period: "June 2024 - Present",
+        role: "Campus Mantri",
+        company: "GeeksforGeeks GGITS",
+        period: "May 2025 - Present",
         desc: [
             "Developed microservices using Node.js and Express.",
             "Optimized frontend performance reducing load time by 30%.",
@@ -17,9 +17,9 @@ const experience = [
         ],
     },
     {
-        role: "AI Research Fellow",
-        company: "University AI Lab",
-        period: "Jan 2024 - May 2024",
+        role: "Virtual Intern",
+        company: "Cisco Networking Academy",
+        period: "July 2024 - August 2024",
         desc: [
             "Conducted research on GANs for image synthesis.",
             "Published findings in internal university journal.",
