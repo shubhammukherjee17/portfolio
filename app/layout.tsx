@@ -11,8 +11,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "AI Engineer | Full Stack Developer",
-  description: "Portfolio of an AIML Enthusiast and Full Stack Developer",
+  title: "Shubham Mukherjee",
+  description: "AIML Enthusiast and Full Stack Developer",
 };
 
 export default function RootLayout({
