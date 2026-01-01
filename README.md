@@ -1,4 +1,4 @@
-**Portfolio — Shubham Mukherjee**
+**Portfolio: Shubham Mukherjee**
 
 A personal portfolio site built with Next.js (app router) showcasing projects, experience, and contact information. This repo contains a clean, responsive UI with sections for Hero, About, Projects, Experience, Blog, and Contact, plus an email-send API route.
 
